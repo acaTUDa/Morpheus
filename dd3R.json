@@ -1,0 +1,479 @@
+[
+  {
+    "CardNumber": "1",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Schalten Sie den Luftdruck ein. Hierzu muss der Luftdruckhahn hinter der Fräsmaschine aufgedreht werden.",
+    "Warning": "Wichtig: Ausgangszustand wie in Dokument „Vorbereitung und Einrichtung“ beschrieben, herstellen.",
+    "Media": "8.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "2",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Schalten Sie den Hauptschalter ein.",
+    "Warning": "Wichtig: Warten Sie ab bis die Maschine vollständig hochgefahren ist. Beachten Sie das Display. Die Tür muss zudem geschlossen sein.",
+    "Media": "4.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "3",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Als nächstes fahren Sie die Hydraulik hoch.",
+    "Warning": "Achtung: Die Taste muss leuchten!",
+    "Media": "5.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "4",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Ansonsten drücken Sie die angezeigten Tasten in der angegebenen Reihenfolge.",
+    "Warning": "Achtung: ggfs. muss die Tastenkombination nach kurzer Pause wiederholt werden.",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "5",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Referenzieren.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "6",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Vorschub ein.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "7",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Cycle Start.",
+    "Warning": "Achtung: Die Maschine verfährt alle Achsen sehr langsam, bis sie ihre Referenzmarken gefunden hat.",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "8",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Optional: Tür öffnen.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "9",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Schalten Sie die Handfunktion ein.",
+    "Warning": "Hinweis: Beide Türen müssen dabei geschlossen sein.",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "10",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Wählen Sie Palettenwechsel aus.",
+    "Warning": "Hinweis: „Ref- Point“ darf dabei nicht eingeschaltet sein.",
+    "Media": "9.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "11",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Zum vorwärts drehen, wie angezeigt, drücken Sie die lila Taste.  Die Lila Taste erst dann loslassen, wenn die Endposition erreicht ist.",
+    "Warning": "Hinweis: 1. Der Vorschub muss eingeschaltet (Feed Start) und 2. auf > 0% gestellt sein.",
+    "Media": "10.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "12",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Über „Maschine“ gelangen Sie wieder ins Hauptmenü.",
+    "Warning": "none",
+    "Media": "14.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "13",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Führen Sie den Werkstückwechsel an der linken Tür durch.",
+    "Warning": "none",
+    "Media": "16.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "14",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Als nächstes entriegeln Sie den Turm zum Drehen mit dem Fußpedal und drehen manuell die gewünschte Seite nach vorne.",
+    "Warning": "Der Turm rastet immer alle 90° wieder ein.",
+    "Media": "15.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "15",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Drehmomentschlüssel auf 40 Nm eingestellen (obere Skala).",
+    "Warning": "Hinweis: Wenn es nicht der Fall ist, laut Abbildung einstellen.",
+    "Media": "18.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "16",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Entnehmen Sie die Teile: Mit Drehmomentenschlüssel öffnen.  Bitte beide Teile mit einer Hand festhalten, sodass sie nicht herunterfallen.",
+    "Warning": "none",
+    "Media": "17.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "17",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Legen Sie neue Rohlinge ein und schieben bis an den rechten Anschlag.",
+    "Warning": "none",
+    "Media": "22.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "18",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Mit dem eingestelltem Drehmomentenschlüssel richtig festziehen, dann den Turm wie vorher beschrieben drehen ...",
+    "Warning": "none",
+    "Media": "20.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "19",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "... und die einseitig bearbeiteten Teile, wie abgebildet einsetzen.",
+    "Warning": "Hinweis: Die Teile passen falsch nicht rein.",
+    "Media": "24.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "20",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Die einseitig bearbeiteten Teile wie gezeigt mit einem Hammer festigen.",
+    "Warning": "none",
+    "Media": "21.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "21",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Das „V“ muss am Schluss nach vorne zeigen. Drehen Sie hierzu den Turm entsprechend. Schließen Sie die Tür im Anschluss.",
+    "Warning": "none",
+    "Media": "26.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "22",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Wählen Sie „Automatik“ aus.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "23",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Über „Menu Select“ gelangen Sie ins Untermenü.",
+    "Warning": "none",
+    "Media": "25.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "24",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "„Programm“ auswählen.",
+    "Warning": "none",
+    "Media": "25.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "25",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Als nächstes „Werkstücke“ auswählen.",
+    "Warning": "none",
+    "Media": "27.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "26",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Mit den Pfeiltasten zu dem Ordner ZYLINDER_MIT_NUT navigieren, diesen mit der gelben Input Taste öffnen und hierin: richtiges Programm (Turm 1 oder 2, 25er oder 40er Boden) auswählen.",
+    "Warning": "none",
+    "Media": "28.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "27",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Auswahl mit der Taste: Anwahl bestätigen.",
+    "Warning": "none",
+    "Media": "27.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "28",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Zurück zum Hauptmenü.",
+    "Warning": "none",
+    "Media": "14.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "29",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Vorschub ein.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "30",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Poti zurückdrehen. (Mit dem Poti wird die Geschwindigkeit geregelt.)",
+    "Warning": "Zu Anfang bitte runter drehen, dann nach und nach auf 100% stellen.",
+    "Media": "5.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "31",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Cycle Start.",
+    "Warning": "Achtung: Fräsvorgang wird gestartet.",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "32",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "MDA-Taste drücken.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "33",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Im MDA-Feld auf dem Bildschirm das Semikolon vor „T=“OI_MK_50_HM“ entfernen.  Mit Cursor-Tasten, Semikolon-Taste und Del-Taste.",
+    "Warning": "T=“OI_MK_50_HM wird zu: T=“OI_MK_50_HM",
+    "Media": "28.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "34",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Nun die Cycle Start-Taste drücken. Warten Sie den Werkzeugwechsel kurz ab.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "35",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Jog-Taste drücken.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "36",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Aktivieren Sie die Handbedienung über die Taste mit dem Hand-Symbol.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "37",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "„Pfeil nach oben“-Taste drücken (die Taste ist unter dem Bildschirm).",
+    "Warning": "none",
+    "Media": "29.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "38",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "„Hilfsfunktionen“ auswählen.",
+    "Warning": "none",
+    "Media": "30.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "39",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "„Werkstückdusche“ auswählen. Die Maschine beginnt nun zu reinigen.",
+    "Warning": "none",
+    "Media": "31.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "40",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "„Spänespülung“ auswählen. Beginnt zu reinigen.",
+    "Warning": "ca. 5 Minuten für die Reinigung warten.",
+    "Media": "32.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "41",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "„Spänespülung““ auswählen. Die Spänespülung wird nun ausgeschaltet.",
+    "Warning": "none",
+    "Media": "32.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "42",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "„Werkstückdusche“ auswählen. Werkzeugdusche wird nun ausgeschaltet.",
+    "Warning": "none",
+    "Media": "32.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "43",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "ca. 1min warten bis KSS und Späne abgelaufen sind.",
+    "Warning": "none",
+    "Media": "none",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "44",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Die Machine-Taste drücken.",
+    "Warning": "none",
+    "Media": "14.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "45",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "MDA-Taste drücken.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "46",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Im MDA-Feld auf dem Bildschirm das Semikolon wieder vor „T=“OI_MK_50_HM“ hinzufügen.",
+    "Warning": "T=“OI_MK_50_HM wird zu:  T=“OI_MK_50_HM",
+    "Media": "28.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "47",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Die Cycle Start-Taste drücken und kurz warten.",
+    "Warning": "none",
+    "Media": "7.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "48",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Fegen Sie mit dem Handfeger den Rüstraum spannfrei (NICHT mit Druckluft). Die Späne dabei in die Schlitze links und rechts fegen und mit einem Papiertuch Innenraum trocken wischen.",
+    "Warning": "none",
+    "Media": "33.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "49",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Beide Scheiben bitte reinigen. Bearbeitungsraum und Rüstpatz.",
+    "Warning": "none",
+    "Media": "none",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "50",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Alle Türen öffnen, da sie sonst verriegeln.",
+    "Warning": "none",
+    "Media": "34.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "51",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Maschinenmenü (1) öffnen, Pfeiltaste (2) drücken und Exit (3) auswählen.",
+    "Warning": "none",
+    "Media": "25.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "52",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Warten Sie bis dieser Bildschirm erscheint und schalten sie im Anschluss am Hauptschalter die Maschine aus.",
+    "Warning": "Achtung: Bitte nicht vorzeitig ausschalten!",
+    "Media": "37.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  },
+  {
+    "CardNumber": "53",
+    "Titel": "Deckel Maho DMC 50H",
+    "Maintext": "Zuletzt drehen Sie die Druckluft zu.",
+    "Warning": "none",
+    "Media": "38.jpg",
+    "SwitchOn": "0",
+    "SelectedCard": "none"
+  }
+]
