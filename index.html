@@ -2,383 +2,457 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morpheus UI</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <title>Kartenanzeige mit Multimedia-Unterstützung</title>
+    <!-- Google Fonts einbinden (optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Grundlegende Styles */
+        :root {
+            /* Basis-Schriftgröße für verschiedene Geräte */
+            font-size: 16px; /* Standard für Desktop */
+        }
+
+        /* Media Queries für unterschiedliche Bildschirmgrößen */
+        @media (max-width: 767px) { /* Smartphones */
+            :root {
+                font-size: 14px; /* Kleinere Basisgröße für kleinere Bildschirme */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
+            :root {
+                font-size: 16px; /* Basisgröße beibehalten */
+            }
+        }
+
+        @media (min-width: 1024px) { /* PCs, Notebooks */
+            :root {
+                font-size: 18px; /* Größere Basisgröße für größere Bildschirme */
+            }
+        }
+
         body {
-            background-color: #dbe7f0; /* Custom Color */
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrollbar during swipe */
-            height: 100vh; /* Ensure body takes full viewport height */
-            margin: 0; /* Remove default margin */
-        }
-        .btn-custom {
-            background-color: transparent;
-            border: none;
-        }
-        .btn-custom:hover {
-            color: orange;
-        }
-        .card-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #007bff;
-        }
-        .card-info {
-            font-size: 10px;
-            color: #444;
-        }
-        .main-text, .warning-text {
-            font-size: 12px;
-            color: #555;
-        }
-        .warning-text {
-            color: orange;
-        }
-        .image-section img {
-            width: 100%;
-            height: auto;
-            max-width: 300px; /* Initial max width */
-            transition: max-width 0.3s ease;
-        }
-        @media (min-width: 768px) {
-            .card-title {
-                font-size: 40px;
-            }
-            .card-info {
-                font-size: 15px;
-            }
-            .main-text {
-                font-size: 20px;
-            }
-            .image-section img {
-                max-width: 400px; /* Größere max width bei größeren Bildschirmen */
-            }
-        }
-        .alert-container {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 400px;
-        }
-        .alert-container.active {
-            display: block;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            display: none;
-            z-index: 9998;
-        }
-        .overlay.active {
-            display: block;
-        }
-        /* Loader Styles */
-        .loader {
-            border: 8px solid #f3f3f3; /* Light grey */
-            border-top: 8px solid #007bff; /* Blue */
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            display: none;
-        }
-        .loader.active {
-            display: block;
-        }
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        /* Arrow Buttons for PC/Notebook */
-        .arrow-buttons {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
+            font-family: 'Roboto', sans-serif; /* Beispiel mit Google Fonts */
+            margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: space-between;
-            pointer-events: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        /* Navigationsbereich */
+        #navigation {
+            width: 100%;
+            background-color: #f8f8f8;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
-        .arrow-buttons button {
-            pointer-events: all;
-            background-color: rgba(255, 255, 255, 0.7);
+
+        /* Buttons */
+        #navigation button {
+            padding: 0.625rem 1.25rem; /* 10px 20px bei 16px Basisgröße */
+            margin: 0 0.625rem; /* 10px */
+            font-size: 1rem; /* 16px */
+            cursor: pointer;
             border: none;
-            border-radius: 50%;
-            padding: 10px;
-            margin: 0 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 0.25rem; /* 4px */
+            transition: background-color 0.3s;
         }
-        .arrow-buttons button:hover {
-            background-color: rgba(255, 165, 0, 0.8); /* Orange */
+
+        #navigation button:hover {
+            background-color: #0056b3;
         }
-        @media (hover: none) and (pointer: coarse) {
-            /* Hide arrow buttons on touch devices */
-            .arrow-buttons {
-                display: none;
+
+        /* Kartenanzeige */
+        #cardContainer {
+            border: 1px solid #ccc;
+            padding: 1.25rem; /* 20px */
+            margin: 1.25rem; /* 20px */
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #fff;
+            border-radius: 0.5rem; /* 8px */
+            display: flex;
+            flex-direction: column; /* Standardmäßig Spaltenlayout */
+            align-items: center;
+            position: relative; /* Für Swipe-Gesten */
+            overflow: hidden; /* Optional: Verhindert das Überschreiten der Grenzen */
+            touch-action: pan-y; /* Ermöglicht vertikales Scrollen und horizontales Wischen */
+        }
+
+        /* Container für Text und Bild */
+        .cardContent {
+            display: flex;
+            flex-direction: column; /* Standardmäßig Spaltenlayout */
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Textbereich */
+        .cardText {
+            flex: 1;
+        }
+
+        /* Titel */
+        #titel {
+            margin-top: 0;
+            font-size: 1.5rem; /* 24px bei 16px Basisgröße */
+            color: #333;
+        }
+
+        /* Haupttext */
+        #maintext {
+            font-size: 1.125rem; /* 18px */
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Warnhinweis */
+        .warning {
+            color: red;
+            font-weight: bold;
+            margin-top: 0.625rem; /* 10px */
+            font-size: 1rem; /* 16px */
+        }
+
+        /* Bildbereich */
+        .cardImage {
+            margin-top: 1.25rem; /* 20px */
+            width: 256px; /* Feste Breite für das Media */
+            height: 256px; /* Feste Höhe für das Media */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Bild */
+        .cardImage img,
+        .cardImage video,
+        .cardImage audio {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Beibehaltung der Aspect Ratio */
+        }
+
+        /* Kartenzähler */
+        #cardCounter {
+            display: block;
+            margin-top: 0.9375rem; /* 15px */
+            font-weight: bold;
+            text-align: center;
+            color: #666;
+            font-size: 1rem; /* 16px */
+        }
+
+        /* Responsive Design für Landscape-Ansicht */
+        @media (min-width: 768px) {
+            .cardContent {
+                flex-direction: row; /* Reihenlayout für größere Bildschirme */
+                align-items: flex-start;
+            }
+            .cardText {
+                flex: 2;
+                margin-right: 1.25rem; /* 20px */
+            }
+            .cardImage {
+                flex: 1;
+                margin-top: 0;
             }
         }
+
+        /* Responsive Anpassung für kleinere Bildschirme */
+        @media (max-width: 767px) {
+            .cardImage {
+                width: 100%;
+                height: auto;
+            }
+            #cardContainer {
+                width: 95%;
+            }
+
+            /* Angepasste Schriftgröße für kleinere Bildschirme */
+            #navigation button {
+                padding: 0.5rem 1rem; /* 8px 16px bei 16px Basisgröße */
+                margin: 0 0.5rem; /* 8px */
+                font-size: 0.875rem; /* 14px */
+            }
+
+            #titel {
+                font-size: 1.25rem; /* 20px */
+            }
+
+            #maintext {
+                font-size: 1rem; /* 16px */
+            }
+
+            .warning {
+                font-size: 0.875rem; /* 14px */
+            }
+
+            #cardCounter {
+                font-size: 0.875rem; /* 14px */
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Loader -->
-    <div class="loader" id="loader"></div>
+    <!-- Navigationsbereich oben -->
+    <div id="navigation">
+        <button id="prevBtn">← Vorherige</button>
+        <button id="nextBtn">Nächste →</button>
+    </div>
 
-    <div class="container p-4" id="mainContent">
-        <!-- Header Buttons -->
-        <div class="d-flex justify-content-between">
-            <button class="btn-custom" onclick="toggleAlert()" aria-label="Eingabe öffnen">
-                <i class="bi bi-plus-circle-fill" style="font-size: 1.5rem;"></i>
-            </button>
-            <button class="btn-custom d-flex align-items-center" id="skipButton" onclick="skipCard()" style="display: none;" aria-label="Skip">
-                <span class="me-2">Skip</span>
-                <i class="bi bi-play-circle-fill" style="font-size: 1.5rem; color: orange;"></i>
-            </button>
-        </div>
-
-        <!-- Card Content -->
-        <div class="mt-4">
-            <h1 class="card-title" id="cardTitle">Titel Lorem ipsum dolor sit amet</h1>
-            <p class="card-info" id="cardInfo">CARD: 001 / 100</p>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-md-8">
-                <p class="main-text" id="mainText">
-                    Main Text ....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse est leo, vehicula eu eleifend non, auctor ut arcu...
-                </p>
-                <p class="warning-text" id="warningText">
-                    Warning Text ....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse est leo, vehicula eu eleifend non, auctor ut arcu...
-                </p>
+    <!-- Kartenanzeige -->
+    <div id="cardContainer">
+        <div class="cardContent">
+            <div class="cardText">
+                <h2 id="titel">Titel</h2>
+                <p id="maintext">Haupttext</p>
+                <p class="warning" id="warning">Warnung</p>
             </div>
-            <div class="col-md-4 image-section text-center">
-                <img src="https://via.placeholder.com/300" alt="Placeholder Image" id="mediaImage">
+            <div class="cardImage" id="mediaContainer">
+                <!-- Dynamische Medieninhalte (img, video, audio) werden hier eingefügt -->
             </div>
         </div>
+        <span id="cardCounter">1 / 53</span>
     </div>
 
-    <!-- Arrow Buttons for PC/Notebook -->
-    <div class="arrow-buttons">
-        <button onclick="previousCard()" aria-label="Vorherige Karte">
-            <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>
-        </button>
-        <button onclick="nextCard()" aria-label="Nächste Karte">
-            <i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem;"></i>
-        </button>
-    </div>
-
-    <!-- Alert Modal -->
-    <div class="alert-container" id="alertContainer">
-        <h4 class="text-center">Eingabe</h4>
-        <input type="text" id="inputText" maxlength="4" class="form-control mt-3" placeholder="Max 4 Zeichen" aria-label="4-Zeichen-Code">
-        <div class="d-flex justify-content-between mt-4">
-            <button class="btn btn-danger w-50 me-1" onclick="toggleAlert()">Close</button>
-            <button class="btn btn-primary w-50 ms-1" onclick="loadData()">Load</button>
-        </div>
-    </div>
-    <div class="overlay" id="overlay"></div>
-
-    <!-- JavaScript -->
     <script>
-        let currentCardIndex = 0;
-        let jsonData = [];
-        let totalCards = 0;
-
-        // Loader Control
-        function showLoader() {
-            document.getElementById('loader').classList.add('active');
-        }
-
-        function hideLoader() {
-            document.getElementById('loader').classList.remove('active');
-        }
-
-        // Toggle Alert Modal
-        function toggleAlert() {
-            const alertContainer = document.getElementById('alertContainer');
-            const overlay = document.getElementById('overlay');
-            alertContainer.classList.toggle('active');
-            overlay.classList.toggle('active');
-            if (!alertContainer.classList.contains('active')) {
-                document.getElementById('inputText').value = '';
+        // JSON-Daten als JavaScript-Variable
+        const cards = [
+            {
+                "CardNumber": "1",
+                "Titel": "Deckel Maho DMC 50H",
+                "Maintext": "Schalten Sie den Luftdruck ein. Hierzu muss der Luftdruckhahn hinter der Fräsmaschine aufgedreht werden.",
+                "Warning": "Wichtig: Ausgangszustand wie in Dokument „Vorbereitung und Einrichtung“ beschrieben, herstellen.",
+                "Media": "8.jpg",
+                "SwitchOn": "0",
+                "SelectedCard": "none"
+            },
+            {
+                "CardNumber": "2",
+                "Titel": "Deckel Maho DMC 50H",
+                "Maintext": "Schalten Sie den Hauptschalter ein.",
+                "Warning": "Wichtig: Warten Sie ab bis die Maschine vollständig hochgefahren ist. Beachten Sie das Display. Die Tür muss zudem geschlossen sein.",
+                "Media": "4.jpg",
+                "SwitchOn": "0",
+                "SelectedCard": "none"
+            },
+            {
+                "CardNumber": "3",
+                "Titel": "Deckel Maho DMC 50H",
+                "Maintext": "Als nächstes fahren Sie die Hydraulik hoch.",
+                "Warning": "Achtung: Die Taste muss leuchten!",
+                "Media": "40.mp4", // Beispiel für Video
+                "SwitchOn": "0",
+                "SelectedCard": "none"
+            },
+            {
+                "CardNumber": "4",
+                "Titel": "Deckel Maho DMC 50H",
+                "Maintext": "Testen Sie den Lautsprecher.",
+                "Warning": "none",
+                "Media": "40.mp3", // Beispiel für Audio
+                "SwitchOn": "0",
+                "SelectedCard": "none"
+            },
+            // ... (Fügen Sie alle weiteren Karten hier ein) ...
+            {
+                "CardNumber": "53",
+                "Titel": "Deckel Maho DMC 50H",
+                "Maintext": "Zuletzt drehen Sie die Druckluft zu.",
+                "Warning": "none",
+                "Media": "38.jpg",
+                "SwitchOn": "0",
+                "SelectedCard": "none"
             }
-        }
+        ];
 
-        // Load Data Function
-        async function loadData() {
-            const input = document.getElementById('inputText').value.trim();
-            console.log(`Eingabe: ${input}`);
-            if (input.length === 4) {
-                showLoader();
-                try {
-                    // Fetch JSON file based on input
-                    const response = await fetch(`data/${input}.json`);
-                    console.log(`Fetching: data/${input}.json`);
-                    if (!response.ok) {
-                        throw new Error('Datei nicht gefunden');
-                    }
-                    jsonData = await response.json();
-                    console.log('JSON-Daten geladen:', jsonData);
-                    if (!Array.isArray(jsonData) || jsonData.length === 0) {
-                        throw new Error('Keine Daten gefunden');
-                    }
-                    currentCardIndex = 0;
-                    totalCards = jsonData.length;
-                    updateUI(jsonData[currentCardIndex]);
-                    toggleAlert();
-                } catch (error) {
-                    console.error(error);
-                    alert(`Fehler: ${error.message}`);
-                } finally {
-                    hideLoader();
+        let currentIndex = 0; // Start bei der ersten Karte
+
+        // Funktion zum Aktualisieren der Anzeige
+        function updateCard() {
+            const card = cards[currentIndex];
+            document.getElementById('titel').textContent = card.Titel;
+            document.getElementById('maintext').textContent = card.Maintext;
+
+            const warningElem = document.getElementById('warning');
+            if (card.Warning && card.Warning.toLowerCase() !== "none") {
+                warningElem.textContent = card.Warning;
+                warningElem.style.display = 'block';
+            } else {
+                warningElem.textContent = "";
+                warningElem.style.display = 'none';
+            }
+
+            const mediaContainer = document.getElementById('mediaContainer');
+            mediaContainer.innerHTML = ''; // Vorherigen Inhalt löschen
+
+            if (card.Media && card.Media.toLowerCase() !== "none") {
+                const mediaExtension = card.Media.split('.').pop().toLowerCase();
+                let mediaElement;
+
+                if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg'].includes(mediaExtension)) {
+                    // Bild anzeigen
+                    mediaElement = document.createElement('img');
+                    mediaElement.src = 'media/' + card.Media;
+                    mediaElement.alt = `Bild für Karte ${card.CardNumber}`;
+                } else if (['mp4', 'webm', 'ogg'].includes(mediaExtension)) {
+                    // Video anzeigen
+                    mediaElement = document.createElement('video');
+                    mediaElement.src = 'media/' + card.Media;
+                    mediaElement.controls = true;
+                    mediaElement.autoplay = false;
+                    mediaElement.loop = false;
+                    mediaElement.preload = 'metadata';
+                    mediaElement.alt = `Video für Karte ${card.CardNumber}`;
+                } else if (['mp3', 'wav', 'ogg'].includes(mediaExtension)) {
+                    // Audio anzeigen
+                    mediaElement = document.createElement('audio');
+                    mediaElement.src = 'media/' + card.Media;
+                    mediaElement.controls = true;
+                    mediaElement.autoplay = false;
+                    mediaElement.loop = false;
+                    mediaElement.preload = 'metadata';
+                    mediaElement.alt = `Audio für Karte ${card.CardNumber}`;
                 }
-            } else {
-                alert('Bitte genau 4 Zeichen eingeben.');
-            }
-        }
 
-        // Update UI Function
-        function updateUI(card) {
-            console.log('Aktuelle Karte:', card);
-            // Validierung der Daten
-            if (!card.CardNumber || !card.Titel || !card.Maintext || !card.Warning || !card.Media) {
-                alert('Unvollständige Daten in der JSON-Datei.');
-                return;
-            }
-            // Aktualisiere die UI-Elemente
-            document.getElementById('cardTitle').textContent = card.Titel;
-            document.getElementById('cardInfo').textContent = `CARD: ${String(card.CardNumber).padStart(3, '0')} / ${totalCards}`;
-            document.getElementById('mainText').textContent = `${card.Maintext}`;
-            document.getElementById('warningText').textContent = `${card.Warning}`;
-
-            const mediaImage = document.getElementById('mediaImage');
-            if (card.Media && card.Media.toLowerCase() !== 'none') {
-                mediaImage.src = `media/${card.Media}`;
-                mediaImage.alt = `Media ${card.Media}`;
-            } else {
-                mediaImage.src = 'https://via.placeholder.com/300?text=No+Image';
-                mediaImage.alt = 'No Image';
-            }
-
-            // Bildfehler abfangen
-            mediaImage.onerror = function() {
-                this.src = 'https://via.placeholder.com/300?text=No+Image';
-                this.alt = 'No Image';
-            }
-
-            // Handle Skip Button
-            const skipButton = document.getElementById('skipButton');
-            if (String(card.SwitchOn) === "1") {
-                skipButton.style.display = 'flex';  // Skip Button anzeigen
-
-                if (card.SelectedCard !== "none" && !isNaN(card.SelectedCard)) {
-                    skipButton.onclick = () => skipCard(card.SelectedCard);  // Gehe zu ausgewählter Karte
+                if (mediaElement) {
+                    mediaContainer.appendChild(mediaElement);
+                    mediaContainer.style.display = 'flex';
                 } else {
-                    skipButton.onclick = () => skipCard();  // Standardmäßig zur nächsten Karte gehen
+                    mediaContainer.style.display = 'none';
                 }
             } else {
-                skipButton.style.display = 'none';  // Skip Button ausblenden
+                mediaContainer.style.display = 'none';
             }
+
+            document.getElementById('cardCounter').textContent = (currentIndex + 1) + " / " + cards.length;
         }
 
-        // Skip Card Function
-        function skipCard(selectedCard = null) {
-            if (selectedCard) {
-                const targetIndex = jsonData.findIndex(c => String(c.CardNumber) === String(selectedCard));
-                console.log(`SelectedCard: ${selectedCard}, TargetIndex: ${targetIndex}`);
-                if (targetIndex !== -1) {
-                    currentCardIndex = targetIndex;
-                    updateUI(jsonData[currentCardIndex]);
-                } else {
-                    alert('Ausgewählte Karte existiert nicht.');
-                }
-            } else {
-                // Skip logic: Go to next card
-                nextCard();
-            }
-        }
-
-        // Swipe Gesture Handling
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        function handleGesture() {
-            const swipeThreshold = 50; // Minimum distance for swipe
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // Swipe Left
-                nextCard();
-            }
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // Swipe Right
-                previousCard();
-            }
-        }
-
-        function nextCard() {
-            if (jsonData.length > 0) {
-                currentCardIndex = (currentCardIndex + 1) % jsonData.length;
-                updateUI(jsonData[currentCardIndex]);
-            }
-        }
-
-        function previousCard() {
-            if (jsonData.length > 0) {
-                currentCardIndex = (currentCardIndex - 1 + jsonData.length) % jsonData.length;
-                updateUI(jsonData[currentCardIndex]);
-            }
-        }
-
-        // Add touch event listeners to the entire document
-        document.addEventListener('touchstart', function(event) {
-            touchStartX = event.changedTouches[0].screenX;
-        }, false);
-
-        document.addEventListener('touchend', function(event) {
-            touchEndX = event.changedTouches[0].screenX;
-            handleGesture();
-        }, false);
-
-        // Keyboard Arrow Keys Handling
-        document.addEventListener('keydown', function(event) {
-            if (jsonData.length === 0) return; // Keine Karten geladen
-            switch(event.key) {
-                case 'ArrowLeft':
-                    previousCard();
-                    break;
-                case 'ArrowRight':
-                    nextCard();
-                    break;
-                default:
-                    break;
+        // Event-Listener für die Buttons
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
             }
         });
 
-        // Initial UI setup (optional)
-        window.onload = function() {
-            // Optional: Lade eine Standardkarte oder lasse die UI unverändert
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateCard();
+            }
+        });
+
+        // Initiale Anzeige
+        updateCard();
+
+        // Swipe-Gesten-Implementierung
+        const cardContainer = document.getElementById('cardContainer');
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50; // Mindest-Scroll-Distanz in Pixeln, um als Swipe erkannt zu werden
+
+        cardContainer.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        }, false);
+
+        cardContainer.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, false);
+
+        function handleSwipeGesture() {
+            const swipeDistance = touchEndX - touchStartX;
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance < 0) {
+                    // Swipe nach links -> Nächste Karte
+                    if (currentIndex < cards.length - 1) {
+                        currentIndex++;
+                        updateCard();
+                    }
+                } else {
+                    // Swipe nach rechts -> Vorherige Karte
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCard();
+                    }
+                }
+            }
         }
+
+        // Optional: Mausgesten für Desktop (Drag)
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragEndX = 0;
+
+        cardContainer.addEventListener('mousedown', function(event) {
+            isDragging = true;
+            dragStartX = event.screenX;
+        }, false);
+
+        cardContainer.addEventListener('mouseup', function(event) {
+            if (isDragging) {
+                dragEndX = event.screenX;
+                handleDragGesture();
+                isDragging = false;
+            }
+        }, false);
+
+        function handleDragGesture() {
+            const dragDistance = dragEndX - dragStartX;
+            if (Math.abs(dragDistance) > swipeThreshold) {
+                if (dragDistance < 0) {
+                    // Drag nach links -> Nächste Karte
+                    if (currentIndex < cards.length - 1) {
+                        currentIndex++;
+                        updateCard();
+                    }
+                } else {
+                    // Drag nach rechts -> Vorherige Karte
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCard();
+                    }
+                }
+            }
+        }
+
+        // Deaktivierung des Zoomens durch Doppelklick
+        document.body.addEventListener('dblclick', function(event) {
+            event.preventDefault();
+        }, false);
+
+        // Tastatur-Navigation mit Pfeiltasten
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                // Linke Pfeiltaste gedrückt -> Vorherige Karte
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCard();
+                }
+            } else if (event.key === 'ArrowRight') {
+                // Rechte Pfeiltaste gedrückt -> Nächste Karte
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updateCard();
+                }
+            }
+        }, false);
     </script>
 
 </body>
